@@ -1,0 +1,34 @@
+[
+  {
+    "id": "c123f1",
+    "email": "paula@gmail.com",
+    "password": "1234",
+    "firstName": "Paula",
+    "lastName": "Berto",
+    "role": "manager"
+  },
+  {
+    "id": "c123f2",
+    "email": "mauro@gmail.com",
+    "password": "1234",
+    "firstName": "Mauro",
+    "lastName": "Coelho",
+    "role": "customer"
+  },
+  {
+    "id": "c123f3",
+    "email": "marcos@gmail.com",
+    "password": "1234",
+    "firstName": "Marcos",
+    "lastName": "Paiva",
+    "role": "customer"
+  },
+  {
+    "id": "c123f4",
+    "email": "bruno@gmail.com",
+    "password": "1234",
+    "firstName": "Bruno",
+    "lastName": "Balmaint",
+    "role": "chef"
+  }
+]
