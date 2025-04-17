@@ -8,7 +8,7 @@ app.use(express.static("./images"));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // allow all domains
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -21,7 +21,7 @@ app.get("/users", async (req, res) => {
   res.status(200).json({ users });
 });
 
-// rotas de menus
+//MENUS
 app.get("/menus", async (req, res) => {
   const fileContent = await fs.readFile("./data/menus.json");
   const menus = JSON.parse(fileContent);
@@ -35,19 +35,18 @@ app.post("/menus", async (req, res) => {
   newMenu.id = new Date().getTime().toString();
   menus.push(newMenu);
 
-  // This should be menus not newMenus
   await fs.writeFile("./data/menus.json", JSON.stringify(menus, null, 2));
   res.status(200).json({ message: "Menu Inserted!" });
 });
 
-// rotas de pedidos
+//ORDERS
 app.post("/orders", async (req, res) => {
   const fileContent = await fs.readFile("./data/orders.json", "utf-8");
   const orders = JSON.parse(fileContent);
 
   const newOrder = req.body;
   newOrder.id = new Date().getTime().toString();
-  newOrder.status = "Confecção";
+  newOrder.status = "Preparing";
   orders.push(newOrder);
 
   await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 2));
@@ -75,8 +74,7 @@ app.put("/orders/:id", async (req, res) => {
   res.status(200).json({ message: "Order updated!" });
 });
 
-// rotas de usuários
-//rota de registo
+//USERS
 app.post("/signup", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json", "utf-8");
   const users = JSON.parse(fileContent);
@@ -88,7 +86,7 @@ app.post("/signup", async (req, res) => {
   res.status(200).json({ message: "User Inserted!" });
 });
 
-// rota de login
+// LOGIN
 app.post("/login", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
@@ -114,7 +112,7 @@ app.post("/login", async (req, res) => {
   res.json(AuthUser);
 });
 
-// 404
+//404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
     return next();
@@ -123,5 +121,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+  console.log("Server is running on port 3000. Enjoy!");
 });

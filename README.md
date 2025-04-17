@@ -1,8 +1,8 @@
-# Projecto Final de React - Gerenciamento de Restaurante
+# React Final Project - Restaurant Management
 
 ## Backend
 
-API desenvolvida utilizando NodeJS.
+API developed with Node.JS.
 
 ### Scripts
 
@@ -13,7 +13,7 @@ $ node app.js
 
 ## Frontend
 
-Projeto de gerenciamento de restaurante utilizando ReactJS.
+Restaurant Management System using ReactJS.
 
 ### Scripts
 

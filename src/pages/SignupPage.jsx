@@ -5,14 +5,15 @@ import Button from "../components/Button";
 
 export default function SignupPage() {
   const [passwordNotEqual, setPasswordNotEqual] = useState(false);
-  const Navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    if (data.password != data.confirmPassword) {
+    if (data.password !== data.confirmPassword) {
       setPasswordNotEqual(true);
       return;
     } else {
@@ -28,99 +29,134 @@ export default function SignupPage() {
       termsAccepted: data.terms === "on",
     };
 
-    await fetch("http://localhost:3000/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    });
+    try {
+      const response = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      });
 
-    Navigate("/", { state: { message: "User inserido com sucesso" } });
+      if (!response.ok) {
+        throw new Error("Failed to register user");
+      }
+
+      navigate("/login", { state: { message: "User registered successfully!" } });
+    } catch (err) {
+      setError("Error registering user. Please try again.");
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1 className="mb-2">Welcome on board!</h1>
-      <p className="mb-5">
-        We just need a little bit of data from you to get you started 🚀
+    <form onSubmit={handleSubmit} className="auth-form">
+      <h1 className="auth-title">Welcome!</h1>
+      <p className="auth-subtitle">
+        We just need a few details to get you started 🚀
       </p>
 
+      {error && <div className="auth-error">{error}</div>}
+
       <div className="card p-4">
-        <div class="mb-3">
-          <label htmlFor="email" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
             Email
           </label>
           <input
             id="email"
             type="email"
             name="email"
-            class="form-control"
+            className="form-control"
             required
+            placeholder="your.email@example.com"
           />
         </div>
 
-        <div class="mb-3">
-          <label htmlFor="password" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             id="password"
             type="password"
             name="password"
-            class="form-control"
+            className="form-control"
             required
+            placeholder="Your password"
           />
         </div>
 
         <div className="mb-3">
-          <label htmlFor="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password" className="form-label">
+            Confirm Password
+          </label>
           <input
             id="confirm-password"
             type="password"
             name="confirmPassword"
-            class="form-control"
+            className="form-control"
             required
+            placeholder="Type your password again"
           />
-          {passwordNotEqual && <p>As passwords não coincidem</p>}
+          {passwordNotEqual && <p className="password-mismatch">Passwords don't match</p>}
         </div>
 
-        <div class="mb-3">
-          <label htmlFor="first-name" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="first-name" className="form-label">
             First Name
           </label>
           <input
             type="text"
             id="first-name"
-            class="form-control"
+            className="form-control"
             name="first-name"
             required
+            placeholder="Your first name"
           />
         </div>
 
-        <div class="mb-3">
-          <label htmlFor="last-name" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="last-name" className="form-label">
             Last Name
           </label>
           <input
             type="text"
             id="last-name"
-            class="form-control"
+            className="form-control"
             name="last-name"
             required
+            placeholder="Your last name"
           />
         </div>
 
-        <div class="mb-3">
-          <label htmlFor="phone" class="form-label">
-            What best describes your role?
+        <div className="mb-3">
+          <label htmlFor="role" className="form-label">
+            What's your role?
           </label>
-          <select id="role" name="role" class="form-select" required>
+          <select id="role" name="role" className="form-select" required>
+            <option value="">Select an option</option>
             <option value="chef">Chef</option>
             <option value="customer">Customer</option>
           </select>
         </div>
 
+        <div className="mb-3 form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="terms"
+            name="terms"
+            required
+          />
+          <label className="form-check-label" htmlFor="terms">
+            I accept the terms and conditions
+          </label>
+        </div>
+
         <div>
-          <Button text="Sign Up" className="btn btn-primary" />
+          <Button text="Sign Up" className="btn btn-primary w-100" />
+        </div>
+        
+        <div className="auth-footer mt-3">
+          Already have an account? <a href="/login">Sign In</a>
         </div>
       </div>
     </form>

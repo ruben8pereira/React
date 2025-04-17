@@ -9,7 +9,7 @@ export default function LayoutMaster() {
       <div className="container mt-3 my-md-4">
         <Outlet />
       </div>
-      <Footer author="Paula Berto" year={2025} />
+      <Footer author="Rúben Pereira" year={2025} />
     </>
   );
 }
