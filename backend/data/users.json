@@ -5,7 +5,8 @@
     "password": "123456789",
     "firstName": "Rúben",
     "lastName": "Pereira",
-    "role": "manager"
+    "role": "manager",
+    "termsAccepted": true
   },
   {
     "id": "2",
@@ -13,7 +14,8 @@
     "password": "123456789",
     "firstName": "Rui",
     "lastName": "Cruz",
-    "role": "customer"
+    "role": "customer",
+    "termsAccepted": true
   },
   {
     "id": "3",
@@ -21,7 +23,8 @@
     "password": "123456789",
     "firstName": "Tiago",
     "lastName": "Terra",
-    "role": "customer"
+    "role": "customer",
+    "termsAccepted": true
   },
   {
     "id": "4",
@@ -29,6 +32,31 @@
     "password": "123456789",
     "firstName": "Ljubomir",
     "lastName": "Stanicic",
-    "role": "chef"
+    "role": "chef",
+    "termsAccepted": true
+  },
+  {
+    "email": "gabriel@gmail.com",
+    "password": "123456789",
+    "firstName": "Gabriel",
+    "lastName": "Pereira",
+    "role": "customer",
+    "termsAccepted": true
+  },
+  {
+    "email": "bruno@gmail.com",
+    "password": "123456789",
+    "firstName": "Bruno",
+    "lastName": "Balmant",
+    "role": "chef",
+    "termsAccepted": true
+  },
+  {
+    "email": "marcos@gmail.com",
+    "password": "123456789",
+    "firstName": "Marcos",
+    "lastName": "Pereira",
+    "role": "customer",
+    "termsAccepted": true
   }
 ]

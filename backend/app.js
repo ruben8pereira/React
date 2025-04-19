@@ -21,7 +21,7 @@ app.get("/users", async (req, res) => {
   res.status(200).json({ users });
 });
 
-//MENUS
+// MENUS
 app.get("/menus", async (req, res) => {
   const fileContent = await fs.readFile("./data/menus.json");
   const menus = JSON.parse(fileContent);
@@ -39,7 +39,7 @@ app.post("/menus", async (req, res) => {
   res.status(200).json({ message: "Menu Inserted!" });
 });
 
-//ORDERS
+// ORDERS
 app.post("/orders", async (req, res) => {
   const fileContent = await fs.readFile("./data/orders.json", "utf-8");
   const orders = JSON.parse(fileContent);
@@ -74,7 +74,7 @@ app.put("/orders/:id", async (req, res) => {
   res.status(200).json({ message: "Order updated!" });
 });
 
-//USERS
+// USERS
 app.post("/signup", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json", "utf-8");
   const users = JSON.parse(fileContent);
@@ -112,7 +112,7 @@ app.post("/login", async (req, res) => {
   res.json(AuthUser);
 });
 
-//404
+// ERROR 404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
     return next();

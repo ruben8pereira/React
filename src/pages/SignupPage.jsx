@@ -40,14 +40,19 @@ export default function SignupPage() {
         throw new Error("Failed to register user");
       }
 
-      navigate("/login", { state: { message: "User registered successfully!" } });
+      navigate("/login", {
+        state: { message: "User registered successfully!" },
+      });
     } catch (err) {
       setError("Error registering user. Please try again.");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="auth-form container-sm py-5 fade-in">
+    <form
+      onSubmit={handleSubmit}
+      className="auth-form container-sm py-5 fade-in"
+    >
       <h1 className="auth-title text-center">Welcome!</h1>
       <p className="auth-subtitle text-center text-subtext">
         We just need a few details to get you started 🚀
@@ -102,7 +107,9 @@ export default function SignupPage() {
               placeholder="Type your password again"
             />
           </div>
-          {passwordNotEqual && <p className="password-mismatch">Passwords don't match</p>}
+          {passwordNotEqual && (
+            <p className="password-mismatch">Passwords don't match</p>
+          )}
         </div>
 
         <div className="form-group">
@@ -144,24 +151,25 @@ export default function SignupPage() {
           </select>
         </div>
 
-        <div className="form-group checkbox">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="terms"
-            name="terms"
-            required
-          />
-          <label className="form-check-label" htmlFor="terms">
-            I accept the terms and conditions
-          </label>
-          <span className="checkmark"></span>
+        <div className="form-group">
+          <div className="form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="terms"
+              name="terms"
+              required
+            />
+            <label className="form-check-label" htmlFor="terms">
+              I accept the terms and conditions
+            </label>
+          </div>
         </div>
 
         <div>
           <Button text="Sign Up" className="btn w-100" />
         </div>
-        
+
         <div className="auth-footer mt-md">
           Already have an account? <a href="/login">Sign In</a>
         </div>

@@ -4,12 +4,12 @@ import Footer from "./Footer";
 
 export default function LayoutMaster() {
   return (
-    <>
+    <div className="layout-container">
       <Header />
-      <div className="container mt-md my-md-lg">
+      <main className="container mt-md my-md-lg flex-grow">
         <Outlet />
-      </div>
+      </main>
       <Footer author="Rúben Pereira" year={2025} />
-    </>
+    </div>
   );
 }
