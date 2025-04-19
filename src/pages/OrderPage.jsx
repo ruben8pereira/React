@@ -49,7 +49,6 @@ export default function OrderPage() {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    // Find the complete menu based on selection
     const selectedMenuDetails = menus.find(menu => {
       const menuName = `${menu.starter} - ${menu.main} - ${menu.dessert}`;
       return menuName === data.menu;
@@ -97,20 +96,20 @@ export default function OrderPage() {
 
   if (loading) {
     return (
-      <div className="container py-4 text-center">
+      <div className="container py-xl text-center">
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <p className="mt-2">Loading available menus...</p>
+        <p className="mt-sm">Loading available menus...</p>
       </div>
     );
   }
 
   return (
-    <div className="container py-4">
+    <div className="container py-xl">
       <div className="row justify-content-center">
         <div className="col-md-8">
-          <h1 className="mb-4 text-center">Place Order</h1>
+          <h1 className="mb-xl text-center">Place Order</h1>
 
           {error && (
             <div className="alert alert-danger" role="alert">
@@ -124,13 +123,13 @@ export default function OrderPage() {
             </div>
           )}
 
-          <div className="card p-4">
+          <div className="card p-xl slide-up">
             <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <h5>Customer: {user.firstName} {user.lastName}</h5>
+              <div className="mb-lg">
+                <h5 className="font-bold text-lg">Customer: {user.firstName} {user.lastName}</h5>
               </div>
 
-              <div className="mb-3">
+              <div className="form-group">
                 <label htmlFor="menu" className="form-label">Select a Menu</label>
                 <select
                   name="menu"
@@ -140,7 +139,7 @@ export default function OrderPage() {
                   onChange={(e) => setSelectedMenu(e.target.value)}
                   required
                 >
-                  <option value="">-- Select a Menu --</option>
+                  <option value="">Select a Menu</option>
                   {menus && menus.length > 0 ? (
                     menus.map((menu) => (
                       <option 
@@ -157,19 +156,19 @@ export default function OrderPage() {
               </div>
 
               {selectedMenu && (
-                <div className="card mb-3 bg-light">
+                <div className="card mb-lg p-md five-guys-pattern">
                   <div className="card-body">
-                    <h5 className="card-title">Order Summary</h5>
-                    <p className="mb-1"><strong>Selected menu:</strong> {selectedMenu}</p>
+                    <h5 className="card-title font-bold">Order Summary</h5>
+                    <p className="mb-xs"><strong>Selected menu:</strong> {selectedMenu}</p>
                     <p><strong>Customer:</strong> {user.firstName} {user.lastName}</p>
                   </div>
                 </div>
               )}
 
-              <div className="d-grid gap-2">
+              <div className="mt-xl">
                 <Button 
                   text={submitting ? "Processing..." : "Confirm Order"} 
-                  className="btn btn-primary"
+                  className="btn w-100"
                   disabled={submitting || !selectedMenu}
                 />
               </div>

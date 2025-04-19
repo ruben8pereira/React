@@ -1,54 +1,47 @@
 :root {
-  /* Paleta Five Guys Moderna */
-  --color-primary: #E41B17;       /* Vermelho Five Guys mais profundo */
-  --color-secondary: #FFFFFF;     /* Branco */
-  --color-accent: #AA110E;        /* Vermelho escuro mais sofisticado */
-  --color-text: #222222;          /* Quase preto para melhor legibilidade */
-  --color-subtext: #666666;       /* Cinza para textos secundários */
-  --color-border: #F0F0F0;        /* Borda mais sutil */
-  --color-highlight: #FF3B30;     /* Vermelho brilhante para hover */
-  --color-success: #34C759;       /* Verde mais vibrante */
-  --color-warning: #FFCC00;       /* Amarelo mais vibrante */
-  --color-background: #FAFAFA;    /* Fundo off-white mais suave */
+  --color-primary: #E41B17;
+  --color-secondary: #FFFFFF;
+  --color-accent: #AA110E;
+  --color-text: #222222;
+  --color-subtext: #666666;
+  --color-border: #F0F0F0;
+  --color-highlight: #FF3B30;
+  --color-success: #34C759;
+  --color-warning: #FFCC00;
+  --color-background: #FAFAFA;
   
-  /* Sombras refinadas */
   --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.03);
   --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-large: 0 15px 60px rgba(0, 0, 0, 0.12);
   --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.06);
   
-  /* Tipografia moderna */
   --font-sans: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
   --font-heading: 'Poppins', var(--font-sans);
   --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
   --font-base-size: 16px;
   --line-height: 1.6;
 
-  /* Espaçamentos precisos */
-  --space-3xs: 0.125rem;  /* 2px */
-  --space-2xs: 0.25rem;   /* 4px */
-  --space-xs: 0.5rem;     /* 8px */
-  --space-sm: 0.75rem;    /* 12px */
-  --space-md: 1rem;       /* 16px */
-  --space-lg: 1.5rem;     /* 24px */
-  --space-xl: 2rem;       /* 32px */
-  --space-2xl: 3rem;      /* 48px */
-  --space-3xl: 4rem;      /* 64px */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
 
-  /* Transições refinadas */
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   
-  /* Bordas modernas */
-  --radius-xs: 0.25rem;   /* 4px */
-  --radius-sm: 0.375rem;  /* 6px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
-  --radius-full: 9999px;  /* Totalmente arredondado */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
 
-  /* Larguras responsivas */
   --content-xs: 640px;
   --content-sm: 768px;
   --content-md: 1024px;
@@ -56,7 +49,6 @@
   --content-xl: 1536px;
 }
 
-/* Reset e fundamentos */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -83,7 +75,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Tipografia moderna */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -130,7 +121,6 @@ p {
   font-size: 1.0625rem;
 }
 
-/* Tipografia auxiliar */
 .text-sm { font-size: 0.875rem; }
 .text-lg { font-size: 1.125rem; }
 .text-xl { font-size: 1.25rem; }
@@ -144,7 +134,6 @@ p {
 .uppercase { text-transform: uppercase; }
 .leading-tight { line-height: 1.2; }
 
-/* Links modernos */
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -175,7 +164,6 @@ a:hover {
   color: var(--color-highlight);
 }
 
-/* Botões modernos */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -261,7 +249,6 @@ a:hover {
   font-size: 0.875rem;
 }
 
-/* Cards modernos */
 .card {
   background-color: white;
   border-radius: var(--radius-lg);
@@ -296,7 +283,6 @@ a:hover {
   transform: scaleX(1);
 }
 
-/* Formulários modernos */
 .form-group {
   margin-bottom: var(--space-lg);
   position: relative;
@@ -333,7 +319,6 @@ input::placeholder, textarea::placeholder {
   color: #9CA3AF;
 }
 
-/* Input com ícone */
 .input-icon {
   position: relative;
 }
@@ -351,7 +336,6 @@ input::placeholder, textarea::placeholder {
   pointer-events: none;
 }
 
-/* Checkbox moderno */
 .checkbox {
   display: flex;
   align-items: center;
@@ -399,7 +383,6 @@ input::placeholder, textarea::placeholder {
   display: block;
 }
 
-/* Layout e containers */
 .container {
   width: 92%;
   max-width: var(--content-lg);
@@ -415,7 +398,6 @@ section {
   padding: var(--space-2xl) 0;
 }
 
-/* Header e navegação */
 .header {
   position: sticky;
   top: 0;
@@ -495,7 +477,6 @@ section {
   font-weight: 600;
 }
 
-/* Botão hambúrguer */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -527,7 +508,6 @@ section {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Hero section */
 .hero {
   padding: var(--space-3xl) 0;
   position: relative;
@@ -578,7 +558,6 @@ section {
   justify-content: center;
 }
 
-/* Grid sistema */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -589,7 +568,6 @@ section {
 .grid-col-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-col-4 { grid-template-columns: repeat(4, 1fr); }
 
-/* Features section */
 .features {
   padding: var(--space-3xl) 0;
 }
@@ -634,7 +612,6 @@ section {
   font-size: 1.25rem;
 }
 
-/* Five Guys específicos */
 .five-guys-pattern {
   background-image: repeating-linear-gradient(
     45deg,
@@ -661,7 +638,7 @@ section {
 }
 
 .menu-item-info {
-  flex: 1;
+  flex: a;
 }
 
 .menu-item-title {
@@ -685,7 +662,6 @@ section {
   margin-left: var(--space-md);
 }
 
-/* Badge moderno */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -713,7 +689,6 @@ section {
   color: var(--color-primary);
 }
 
-/* Footer moderno */
 .footer {
   background-color: #222222;
   color: white;
@@ -801,77 +776,10 @@ section {
   transform: translateY(-3px);
 }
 
-/* Responsividade aprimorada */
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .grid-col-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.delivered {
+  color: var(--color-success);
 }
 
-@media (max-width: 768px) {
-  :root {
-    --font-base-size: 15px;
-  }
-  
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .nav-links {
-    position: fixed;
-    top: 60px;
-    right: -100%;
-    flex-direction: column;
-    gap: var(--space-md);
-    align-items: flex-start;
-    width: 80%;
-    height: calc(100vh - 60px);
-    background-color: white;
-    box-shadow: var(--shadow-medium);
-    padding: var(--space-lg);
-    transition: right var(--transition-medium);
-    border-left: 1px solid var(--color-border);
-  }
-  
-  .nav-links.active {
-    right: 0;
-  }
-  
-  .grid-col-2, .grid-col-3 {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    gap: var(--space-md);
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .container {
-    width: 94%;
-  }
-  
-  h1::after {
-    width: 2rem;
-  }
-}
-
-/* Utilidades de layout */
 .flex { display: flex; }
 .items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
@@ -882,7 +790,6 @@ section {
 .gap-md { gap: var(--space-md); }
 .gap-lg { gap: var(--space-lg); }
 
-/* Utilidades de espaçamento */
 .p-xs { padding: var(--space-xs); }
 .p-sm { padding: var(--space-sm); }
 .p-md { padding: var(--space-md); }
@@ -909,7 +816,6 @@ section {
 .mt-xl { margin-top: var(--space-xl); }
 .mt-2xl { margin-top: var(--space-2xl); }
 
-/* Animações modernas */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

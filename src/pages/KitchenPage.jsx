@@ -56,85 +56,107 @@ export default function KitchenPage() {
 
   if (loading) {
     return (
-      <div className="container py-4 text-center">
+      <div className="container py-xl text-center">
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <p className="mt-2">Loading orders...</p>
+        <p className="mt-sm text-subtext">Loading orders...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="container py-4">
-        <div className="alert alert-danger" role="alert">
-          {error}
+      <div className="container py-xl">
+        <div className="card p-lg bg-light border-danger">
+          <div className="text-primary mb-md font-medium">{error}</div>
+          <button className="btn" onClick={getOrders}>
+            <i className="bi bi-arrow-clockwise me-2"></i>
+            Try Again
+          </button>
         </div>
-        <button className="btn btn-primary" onClick={getOrders}>
-          Try Again
-        </button>
       </div>
     );
   }
 
   return (
-    <div className="container py-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Kitchen Orders</h2>
-        <button 
-          className="btn btn-outline-primary" 
-          onClick={getOrders}
-          disabled={updating}
-        >
-          <i className="bi bi-arrow-clockwise me-2"></i>Refresh
-        </button>
+    <div className="container py-xl fade-in">
+      <div className="card p-lg mb-xl">
+        <div className="flex justify-between items-center">
+          <h2 className="text-primary">Kitchen Orders</h2>
+          <button 
+            className="btn btn-text" 
+            onClick={getOrders}
+            disabled={updating}
+          >
+            <i className="bi bi-arrow-clockwise me-2"></i>Refresh
+          </button>
+        </div>
       </div>
 
       {!orders || orders.length === 0 ? (
-        <div className="alert alert-info">
-          No orders found.
+        <div className="card p-xl text-center five-guys-pattern">
+          <h3 className="mb-md text-primary">No Orders Found</h3>
+          <p className="text-subtext">The kitchen is currently empty. Orders will appear here when customers place them.</p>
+          <div className="mt-lg">
+            <button className="btn btn-secondary" onClick={getOrders}>
+              <i className="bi bi-arrow-clockwise me-2"></i>
+              Check Again
+            </button>
+          </div>
         </div>
       ) : (
-        <div className="table-responsive">
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Customer</th>
-                <th scope="col">Menu</th>
-                <th scope="col">Status</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => (
-                <tr key={order.id} className={order.status === "Delivered" ? "table-success" : ""}>
-                  <td>{order.id}</td>
-                  <td>{order.customer}</td>
-                  <td>{order.menu}</td>
-                  <td>
-                    <span className={`badge ${order.status === "Delivered" ? "bg-success" : "bg-warning"}`}>
-                      {order.status}
-                    </span>
-                  </td>
-                  <td>
-                    {order.status !== "Delivered" ? (
-                      <button 
-                        className="btn btn-sm btn-success"
-                        onClick={() => markAsDelivered(order.id)}
-                        disabled={updating}
-                      >
-                        Mark as Delivered
-                      </button>
-                    ) : (
-                      <span className="text-muted">Order delivered</span>
-                    )}
-                  </td>
+        <div className="card p-lg table-responsive slide-up">
+          <h3 className="mb-lg font-medium text-lg">Active Orders</h3>
+          <table className="table table-hover mb-0">
+              <thead>
+                <tr className="bg-light">
+                  <th scope="col" className="py-md px-lg border-0">ID</th>
+                  <th scope="col" className="py-md px-lg border-0">Customer</th>
+                  <th scope="col" className="py-md px-lg border-0">Menu</th>
+                  <th scope="col" className="py-md px-lg border-0">Status</th>
+                  <th scope="col" className="py-md px-lg border-0">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {orders.map((order) => (
+                  <tr key={order.id} className={order.status === "Delivered" ? "bg-light" : ""}>
+                    <td className="py-md px-lg">{order.id}</td>
+                    <td className="py-md px-lg font-medium">{order.customer}</td>
+                    <td className="py-md px-lg">{order.menu}</td>
+                    <td className="py-md px-lg">
+                      <span className={`badge ${order.status === "Delivered" ? "badge-success" : "badge-warning"}`}>
+                        {order.status}
+                      </span>
+                    </td>
+                    <td className="py-md px-lg">
+                      {order.status !== "Delivered" ? (
+                        <button 
+                          className="btn btn-sm btn-secondary"
+                          onClick={() => markAsDelivered(order.id)}
+                          disabled={updating}
+                        >
+                          Mark as Delivered
+                        </button>
+                      ) : (
+                        <span className="text-subtext delivered">DELIVERED</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          
+          <div className="flex justify-center mt-lg">
+            <button 
+              className="btn btn-secondary" 
+              onClick={getOrders} 
+              disabled={updating}
+            >
+              <i className="bi bi-arrow-repeat me-2"></i>
+              Refresh Orders
+            </button>
+          </div>
         </div>
       )}
     </div>

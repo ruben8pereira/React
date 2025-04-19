@@ -29,45 +29,49 @@ export default function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="auth-form">
-      <h1 className="auth-title">Login</h1>
+    <form onSubmit={handleSubmit} className="auth-form container-sm py-5 fade-in">
+      <h1 className="auth-title text-center">Login</h1>
       
       {error && <div className="auth-error">{error}</div>}
       
-      <div className="card p-4">
-        <div className="mb-3">
+      <div className="card p-lg slide-up">
+        <div className="form-group">
           <label htmlFor="email" className="form-label">
-            Email
+            E-mail
           </label>
-          <input 
-            name="email" 
-            id="email" 
-            className="form-control" 
-            required 
-            type="email"
-            placeholder="Your email"
-          />
+          <div className="input-icon">
+            <input 
+              name="email" 
+              id="email" 
+              className="form-control" 
+              required 
+              type="email"
+              placeholder="E-mail"
+            />
+          </div>
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="password" className="form-label">
             Password
           </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            className="form-control"
-            required
-            placeholder="Your password"
-          />
+          <div className="input-icon">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              className="form-control"
+              required
+              placeholder="Password"
+            />
+          </div>
         </div>
 
         <div>
-          <Button className="btn btn-primary w-100" text="Sign In" />
+          <Button className="btn w-100" text="Sign In" />
         </div>
         
-        <div className="auth-footer mt-3">
+        <div className="auth-footer mt-md">
           Don't have an account? <a href="/signup">Sign Up</a>
         </div>
       </div>

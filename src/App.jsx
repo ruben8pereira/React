@@ -4,6 +4,7 @@ import LayoutMaster from "./components/LayoutMaster";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import OnlyCustomer from "./protectedRoutes/OnlyCustomer";
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </AuthProvider>
   );
 }

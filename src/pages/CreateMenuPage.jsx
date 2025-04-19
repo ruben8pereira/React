@@ -52,16 +52,16 @@ export default function CreateMenuPage() {
   }
 
   return (
-    <div className="container py-4">
+    <div className="container py-xl fade-in">
       <div className="row justify-content-center">
         <div className="col-md-8">
-          <h2 className="mb-4 text-center">Create New Menu</h2>
+          <h2 className="mb-xl text-center">Create New Menu</h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="card p-4">
-              {error && <div className="error mb-4">{error}</div>}
+            <div className="card p-xl slide-up">
+              {error && <div className="alert alert-danger mb-lg">{error}</div>}
 
-              <div className="mb-3">
+              <div className="form-group">
                 <label htmlFor="starter" className="form-label">
                   Appetizer
                 </label>
@@ -73,13 +73,13 @@ export default function CreateMenuPage() {
                   className="form-control"
                   id="starter"
                   type="text"
-                  placeholder="Ex: Caesar Salad"
+                  placeholder="Appetizer"
                 />
               </div>
 
-              <div className="mb-3">
+              <div className="form-group">
                 <label htmlFor="main" className="form-label">
-                  Main Course
+                  Main Plate
                 </label>
                 <input
                   name="main"
@@ -89,11 +89,11 @@ export default function CreateMenuPage() {
                   className="form-control"
                   id="main"
                   type="text"
-                  placeholder="Ex: Chicken Parmesan"
+                  placeholder="Main Plate"
                 />
               </div>
 
-              <div className="mb-3">
+              <div className="form-group">
                 <label htmlFor="dessert" className="form-label">
                   Dessert
                 </label>
@@ -105,19 +105,19 @@ export default function CreateMenuPage() {
                   className="form-control"
                   id="dessert"
                   type="text"
-                  placeholder="Ex: Chocolate Pudding"
+                  placeholder="Dessert"
                 />
               </div>
               
-              <div className="d-grid gap-2">
+              <div className="flex gap-md mt-xl">
                 <Button 
                   text={loading ? "Saving..." : "Save Menu"} 
-                  className="btn btn-primary" 
+                  className="btn flex-grow-1" 
                   disabled={loading}
                 />
                 <button 
                   type="button" 
-                  className="btn btn-outline-secondary" 
+                  className="btn btn-secondary flex-grow-1" 
                   onClick={() => navigate("/menus")}
                 >
                   Cancel

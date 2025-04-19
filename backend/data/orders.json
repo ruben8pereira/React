@@ -2,25 +2,43 @@
   {
     "id": "1961197520022",
     "customer": "Bruno Santos",
-    "menu": "Menu Frango de Churrasco",
+    "menu": "Croquetes - Bifana - Natas do Céu",
     "status": "Preparing"
   },
   {
     "id": "1975200220031",
     "customer": "Vítor Santos",
-    "menu": "Menu Picanha",
-    "status": "Making"
+    "menu": "Pão de Queijo - Picanha - Bolo de Bolacha",
+    "status": "Preparing"
   },
   {
     "id": "2002200319611",
     "customer": "Sara Monteiro",
-    "menu": "Menu Vegetariano",
-    "status": "Making"
+    "menu": "Camarão - Sushi - Bolo de Chocolate",
+    "status": "Preparing"
   },
   {
     "id": "2003196119752",
     "customer": "Rui Cruz",
     "menu": "Rissóis - Carne de Porco à Alentejana - Bolo de Noz com Creme de Ovos",
+    "status": "Preparing"
+  },
+  {
+    "customer": "Tiago Terra",
+    "menu": "Picapau - Francesinha de Picanha - Bolo de Chocolate",
+    "id": "1744933414503",
     "status": "Delivered"
+  },
+  {
+    "customer": "Rui Cruz",
+    "menu": "Bolinhos de Bacalhau - Bacalhau à Brás - Pudim Francês",
+    "id": "1744934094540",
+    "status": "Delivered"
+  },
+  {
+    "customer": "Tiago Terra",
+    "menu": "Picapau - Francesinha de Picanha - Bolo de Chocolate",
+    "id": "1744937023554",
+    "status": "Preparing"
   }
 ]

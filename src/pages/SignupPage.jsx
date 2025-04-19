@@ -47,59 +47,65 @@ export default function SignupPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="auth-form">
-      <h1 className="auth-title">Welcome!</h1>
-      <p className="auth-subtitle">
+    <form onSubmit={handleSubmit} className="auth-form container-sm py-5 fade-in">
+      <h1 className="auth-title text-center">Welcome!</h1>
+      <p className="auth-subtitle text-center text-subtext">
         We just need a few details to get you started 🚀
       </p>
 
       {error && <div className="auth-error">{error}</div>}
 
-      <div className="card p-4">
-        <div className="mb-3">
+      <div className="card p-lg slide-up">
+        <div className="form-group">
           <label htmlFor="email" className="form-label">
             Email
           </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            className="form-control"
-            required
-            placeholder="your.email@example.com"
-          />
+          <div className="input-icon">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              className="form-control"
+              required
+              placeholder="your.email@example.com"
+            />
+          </div>
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="password" className="form-label">
             Password
           </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            className="form-control"
-            required
-            placeholder="Your password"
-          />
+          <div className="input-icon">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              className="form-control"
+              required
+              placeholder="Your password"
+            />
+          </div>
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="confirm-password" className="form-label">
             Confirm Password
           </label>
-          <input
-            id="confirm-password"
-            type="password"
-            name="confirmPassword"
-            className="form-control"
-            required
-            placeholder="Type your password again"
-          />
+          <div className="input-icon">
+            <input
+              id="confirm-password"
+              type="password"
+              name="confirmPassword"
+              className="form-control"
+              required
+              placeholder="Type your password again"
+            />
+          </div>
           {passwordNotEqual && <p className="password-mismatch">Passwords don't match</p>}
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="first-name" className="form-label">
             First Name
           </label>
@@ -113,7 +119,7 @@ export default function SignupPage() {
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="last-name" className="form-label">
             Last Name
           </label>
@@ -127,7 +133,7 @@ export default function SignupPage() {
           />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label htmlFor="role" className="form-label">
             What's your role?
           </label>
@@ -138,7 +144,7 @@ export default function SignupPage() {
           </select>
         </div>
 
-        <div className="mb-3 form-check">
+        <div className="form-group checkbox">
           <input
             type="checkbox"
             className="form-check-input"
@@ -149,13 +155,14 @@ export default function SignupPage() {
           <label className="form-check-label" htmlFor="terms">
             I accept the terms and conditions
           </label>
+          <span className="checkmark"></span>
         </div>
 
         <div>
-          <Button text="Sign Up" className="btn btn-primary w-100" />
+          <Button text="Sign Up" className="btn w-100" />
         </div>
         
-        <div className="auth-footer mt-3">
+        <div className="auth-footer mt-md">
           Already have an account? <a href="/login">Sign In</a>
         </div>
       </div>

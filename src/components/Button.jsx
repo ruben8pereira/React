@@ -2,7 +2,7 @@ export default function Button({
   onClick,
   text,
   type = "submit",
-  className = "btn btn-primary",
+  className = "btn",
   disabled = false,
 }) {
   return (
